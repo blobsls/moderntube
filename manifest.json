@@ -2,8 +2,8 @@
   "manifest_version": 3,
   "name": "moderntube",
   "version": "1.0",
-  "description": "Enhances YouTube with modern animations and improved UI",
-  "permissions": ["storage"],
+  "description": "Enhances YouTube with modern UI, animations, and customization",
+  "permissions": ["storage", "scripting"],
   "host_permissions": ["*://*.youtube.com/*"],
   "content_scripts": [
     {
@@ -13,7 +13,15 @@
     }
   ],
   "web_accessible_resources": [{
-    "resources": ["animations.css", "fonts/*"],
+    "resources": ["themes.css", "animations.css"],
     "matches": ["*://*.youtube.com/*"]
-  }]
+  }],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  }
 }
