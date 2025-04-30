@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "moderntube",
+  "version": "1.0",
+  "description": "Enhances YouTube with modern animations and improved UI",
+  "permissions": ["storage"],
+  "host_permissions": ["*://*.youtube.com/*"],
+  "content_scripts": [
+    {
+      "matches": ["*://*.youtube.com/*"],
+      "css": ["styles.css"],
+      "js": ["content.js"]
+    }
+  ],
+  "web_accessible_resources": [{
+    "resources": ["animations.css", "fonts/*"],
+    "matches": ["*://*.youtube.com/*"]
+  }]
+}
