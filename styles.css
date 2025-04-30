@@ -1,34 +1,196 @@
-/* Modern button animations */
+/* Base Modernization */
+:root {
+  --modern-primary: #FF0000;
+  --modern-primary-hover: #FF3333;
+  --modern-text-primary: rgba(255, 255, 255, 0.92);
+  --modern-text-secondary: rgba(255, 255, 255, 0.6);
+  --modern-bg-primary: #0f0f0f;
+  --modern-bg-secondary: #181818;
+  --modern-card-radius: 12px;
+  --modern-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --modern-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Layout Improvements */
+#content.ytd-app {
+  padding: 16px !important;
+}
+
+#page-manager.ytd-app {
+  margin-top: 0 !important;
+}
+
+/* Header Modernization */
+#masthead-container.ytd-app {
+  backdrop-filter: blur(10px) !important;
+  background-color: rgba(15, 15, 15, 0.8) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Video Cards */
+ytd-rich-item-renderer {
+  border-radius: var(--modern-card-radius) !important;
+  overflow: hidden !important;
+  transition: var(--modern-transition) !important;
+  margin-bottom: 16px !important;
+}
+
+ytd-rich-item-renderer:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Thumbnail Effects */
+ytd-thumbnail, .yt-core-image {
+  transition: var(--modern-transition) !important;
+  border-radius: var(--modern-card-radius) !important;
+}
+
+ytd-thumbnail:hover, .yt-core-image:hover {
+  transform: scale(1.03) !important;
+  filter: brightness(1.05) !important;
+}
+
+/* Buttons */
 ytd-button-renderer, .yt-spec-button-shape-next {
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+  transition: var(--modern-transition) !important;
+  border-radius: 8px !important;
 }
 
 ytd-button-renderer:hover, .yt-spec-button-shape-next:hover {
   transform: translateY(-2px) !important;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+  box-shadow: var(--modern-shadow) !important;
 }
 
-/* Improved video cards */
-ytd-rich-item-renderer {
-  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
-  border-radius: 12px !important;
-  overflow: hidden !important;
-}
-
-ytd-rich-item-renderer:hover {
-  transform: scale(1.02) !important;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1) !important;
-}
-
-/* Modern sidebar */
+/* Sidebar */
 ytd-guide-section-renderer {
   background: rgba(255, 255, 255, 0.05) !important;
   backdrop-filter: blur(10px) !important;
-  border-radius: 12px !important;
+  border-radius: var(--modern-card-radius) !important;
   margin: 8px !important;
+  padding: 8px 0 !important;
 }
 
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth !important;
+/* Player Controls */
+.ytp-chrome-bottom {
+  transition: var(--modern-transition) !important;
+}
+
+.ytp-chrome-bottom:hover {
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent) !important;
+}
+
+.ytp-progress-bar {
+  height: 4px !important;
+}
+
+.ytp-scrubber-container {
+  transition: var(--modern-transition) !important;
+}
+
+.ytp-scrubber-container:hover {
+  transform: scale(1.2) !important;
+}
+
+/* Floating Progress Bar */
+#modern-floating-progress {
+  position: fixed;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+  z-index: 9999;
+  display: none;
+}
+
+#modern-floating-progress .fill {
+  height: 100%;
+  background: var(--modern-primary);
+  border-radius: 2px;
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
+/* Minimalist Mode Classes */
+.modern-minimalist .secondary-column {
+  display: none !important;
+}
+
+.modern-minimalist ytd-comments {
+  display: none !important;
+}
+
+.modern-minimalist #related {
+  display: none !important;
+}
+
+.modern-minimalist #masthead-container {
+  height: 60px !important;
+}
+
+/* Loading Animations */
+.modern-loading {
+  position: relative;
+  overflow: hidden;
+}
+
+.modern-loading::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  animation: modernShine 1.5s infinite;
+  z-index: 1;
+}
+
+@keyframes modernShine {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Theme Toggle */
+.modern-theme-toggle {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  z-index: 1000;
+  background: var(--modern-bg-secondary);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--modern-shadow);
+  transition: var(--modern-transition);
+}
+
+.modern-theme-toggle:hover {
+  transform: scale(1.1);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--modern-bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--modern-primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--modern-primary-hover);
 }
