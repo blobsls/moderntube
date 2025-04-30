@@ -1,0 +1,34 @@
+/* Modern button animations */
+ytd-button-renderer, .yt-spec-button-shape-next {
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+}
+
+ytd-button-renderer:hover, .yt-spec-button-shape-next:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Improved video cards */
+ytd-rich-item-renderer {
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+}
+
+ytd-rich-item-renderer:hover {
+  transform: scale(1.02) !important;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Modern sidebar */
+ytd-guide-section-renderer {
+  background: rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(10px) !important;
+  border-radius: 12px !important;
+  margin: 8px !important;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth !important;
+}
